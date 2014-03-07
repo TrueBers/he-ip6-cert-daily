@@ -4,7 +4,6 @@ import std.stdio;
 import std.process;
 import std.net.curl;
 import arsd.dom;
-import std.conv;
 import std.string;
 import std.uri;
 import std.algorithm;
@@ -101,7 +100,7 @@ class Submitter
       } else
 	  writeln( "Submitting info: "~info.innerText() );
     } else if ( error ) {
-      if ( canFind( error.innerText(), "already submitted" ) ) {
+      if ( canFind( error.innerText(), "last 24 hours" ) ) {
 	jobs[cmd_id].done = true;
 	submit_result = true;
       }
